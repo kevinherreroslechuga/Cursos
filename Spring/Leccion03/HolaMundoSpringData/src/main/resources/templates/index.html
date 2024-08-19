@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- para manejar informacion dinamica, ns= name space, th=prefijo para las etiquetas de thymeleaf  -->
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <p th:text="${mensaje}"></p><!-- para agregar informacion dentro de la etiqueta con thymeleaf -->
+        <p th:text="${saludo}"></p>
+        <br>
+        <div th:if="${personas != null and !personas.empty}">
+
+
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre(este valor se sustitulle por lo que esta en la variable)</td>
+                    <td th:text="${persona.apellido}">Mostrar Apellido</td>
+                    <td th:text="${persona.email}">Mostrar Eail</td>
+                    <td th:text="${persona.telefono}">Mostrar Telofono</td>
+                </tr>
+
+            </table>
+        </div>
+        <div th:if="${personas == null or perosnas.empty}">
+            La lista de personas esta vacía
+        </div>
+
+    </body>
+</html>
