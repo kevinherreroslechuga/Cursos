@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1>Inicio</h1>
+        <a th:href="@{/agregar}">Crear Persona</a>
         <div th:if="${personas != null and !personas.empty}">
             <table border="1">
                 <tr>
@@ -13,12 +14,20 @@
                     <th>Apellido</th>
                     <th>Email</th>
                     <th>Telefono</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
                 <tr th:each="persona : ${personas}">
                     <td th:text="${persona.nombre}">Mostrar Nombre(este valor se sustitulle por lo que esta en la variable)</td>
                     <td th:text="${persona.apellido}">Mostrar Apellido</td>
                     <td th:text="${persona.email}">Mostrar Eail</td>
                     <td th:text="${persona.telefono}">Mostrar Telofono</td>
+                    <td><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"/></td> <!--path variable para editar un a persona-->
+                   <!-- <td><a th:href="@{/eliminar/} + ${persona.idPersona}" th:text="Eliminar"/></td>
+                   Para no hacer un path parameter y hacer un query parameter se hace lo de la siguiente linea
+                   -->
+                   <td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"/></td>
+
                 </tr>
 
             </table>
