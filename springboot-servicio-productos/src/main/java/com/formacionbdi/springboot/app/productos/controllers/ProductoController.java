@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.formacionbdi.springboot.app.productos.models.entity.Producto;
@@ -18,6 +19,11 @@ public class ProductoController {
 	@GetMapping("/listar")
 	public List<Producto>Listar(){//siempre publicos 
 		return productoService.findAll();
+	}
+	
+	@GetMapping("/ver/{id}")
+	public Producto detalle(@PathVariable Long id) {
+		return productoService.findById(id);
 	}
 
 }
