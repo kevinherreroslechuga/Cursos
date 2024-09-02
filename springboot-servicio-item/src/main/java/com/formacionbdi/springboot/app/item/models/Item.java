@@ -29,7 +29,7 @@ public class Item {
 		this.cantidad = cantidad;
 	}
 	
-	public Double getTotal() {
+	public Double getTotal() {//esto lo mostrara en el json de respuesta solo por poner get en la clase de modelo de respuesta 
 		return producto.getPrecio() * cantidad.doubleValue();//convertimos catidad de entero a double
 	}
 
