@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.formacionbdi.springboot.app.item.models.Item;
 import com.formacionbdi.springboot.app.item.models.Producto;
 
-@Service//es del estereotipo component, se registra como un bean, service significa buissness service que e suna fachada para acceder a los datos, se esta trabajando con datos con logica de negocio
+@Service("serviceRestTemplate")//es del estereotipo component, se registra como un bean, service significa buissness service que e suna fachada para acceder a los datos, se esta trabajando con datos con logica de negocio
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
